@@ -1,0 +1,17 @@
+WorkClub
+
+WorkClub is a derivative work based in part on IDURAR ERP CRM:
+https://github.com/idurar/idurar-erp-crm
+
+IDURAR ERP CRM is distributed under the GNU Affero General Public License,
+version 3. WorkClub retains the same AGPL-3.0-only license. The full,
+unmodified license text is included in LICENSE.
+
+WorkClub modifications include the client-work domain model, tenant and role
+boundaries, rotating session implementation, delivery and billing workflows,
+React interface, automated tests, deployment configuration, and documentation.
+This distribution contains substantial modifications completed in 2026.
+
+This software is provided without warranty. An operator who makes a modified
+version available over a network must give its users access to the
+corresponding source as required by section 13 of the AGPL.
