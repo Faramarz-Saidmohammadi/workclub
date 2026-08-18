@@ -35,7 +35,7 @@ test('Member navigation is restricted to assigned delivery work', async ({ page 
 test('Client is isolated inside the lightweight portal', async ({ page }) => {
   await login(page, 'client@workclub.demo');
   await expect(page).toHaveURL(/\/portal$/);
-  await expect(page.getByText('Atlas Digital Launch')).toBeVisible();
-  await expect(page.getByText('NS-1001')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Atlas Digital Launch' })).toBeVisible();
+  await expect(page.getByRole('cell', { name: 'NS-1001' })).toBeVisible();
   await expect(page.getByText('Internal tasks')).toHaveCount(0);
 });
