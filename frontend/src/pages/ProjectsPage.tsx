@@ -94,7 +94,7 @@ export function ProjectsPage() {
                     )}
                   </Space>
                 </div>
-                <button className="project-title-button" onClick={() => navigate(`/projects/${project._id}/board`)}>
+                <button type="button" className="project-title-button" onClick={() => navigate(`/projects/${project._id}/board`)}>
                   <h3>{project.name}</h3>
                 </button>
                 <p>{typeof project.client === 'string' ? 'Client project' : project.client.name}</p>

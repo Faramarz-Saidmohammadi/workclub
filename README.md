@@ -226,7 +226,7 @@ npm run test:e2e
 ```
 
 GitHub Actions performs linting, unit tests, a combined real-MongoDB coverage gate, builds,
-dependency auditing and Chromium E2E tests on every pull request.
+dependency auditing and desktop/mobile Chromium E2E tests on every pull request.
 
 ## Operations
 

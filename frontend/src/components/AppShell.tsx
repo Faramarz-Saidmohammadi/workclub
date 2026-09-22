@@ -151,6 +151,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           <Space size={16}>
             <Badge count={unread} size="small">
               <Button
+                aria-label="Open notifications"
                 shape="circle"
                 icon={<BellOutlined />}
                 onClick={() => {
