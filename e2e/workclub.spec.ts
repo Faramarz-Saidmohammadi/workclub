@@ -9,21 +9,33 @@ async function login(page: import('@playwright/test').Page, email: string) {
   await page.getByRole('button', { name: 'Sign in' }).click();
 }
 
+async function openNavigation(page: import('@playwright/test').Page) {
+  const mobileTrigger = page.getByRole('button', { name: 'Open navigation' });
+  if (await mobileTrigger.isVisible()) await mobileTrigger.click();
+}
+
+async function navigateTo(page: import('@playwright/test').Page, name: string) {
+  await openNavigation(page);
+  await page.getByRole('menuitem', { name }).click();
+}
+
 test('Owner can access the operational workspace and audit trail', async ({ page }) => {
   await login(page, 'owner@workclub.demo');
   await expect(page).toHaveURL(/\/dashboard$/);
-  await expect(page.getByText('Northstar Studio')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Good to see you, Olivia' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Open notifications' })).toBeVisible();
 
-  await page.getByRole('menuitem', { name: 'Projects' }).click();
+  await navigateTo(page, 'Projects');
   await expect(page.getByText('Atlas Digital Launch')).toBeVisible();
 
-  await page.getByRole('menuitem', { name: 'Audit trail' }).click();
+  await navigateTo(page, 'Audit trail');
   await expect(page.getByRole('heading', { name: 'Audit trail' })).toBeVisible();
 });
 
 test('Member navigation is restricted to assigned delivery work', async ({ page }) => {
   await login(page, 'member@workclub.demo');
   await expect(page).toHaveURL(/\/dashboard$/);
+  await openNavigation(page);
   await expect(page.getByRole('menuitem', { name: 'Clients' })).toHaveCount(0);
   await expect(page.getByRole('menuitem', { name: 'Invoices' })).toHaveCount(0);
 

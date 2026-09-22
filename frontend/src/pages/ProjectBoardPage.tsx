@@ -195,7 +195,7 @@ export function ProjectBoardPage() {
                           <span>{dayjs(task.dueDate).format("D MMM")}</span>
                         )}
                       </div>
-                      <button className="task-title-button" onClick={() => void openDetails(task._id)}>
+                      <button type="button" className="task-title-button" onClick={() => void openDetails(task._id)}>
                         <h4>{task.title}</h4>
                       </button>
                       <div className="task-footer">
